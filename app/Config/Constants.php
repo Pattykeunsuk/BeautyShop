@@ -123,8 +123,8 @@ define("TAREA_USUARIO_DETALLES",'tarea_usuario_detalles');
 define("TAREA_CATALOGO",'tarea_catalogo');
 define("TAREA_CATALOGO_DAMA",'tarea_catalogo_dama');
 define("TAREA_CATALOGO_CABALLERO",'tarea_catalogo_caballero');
-define("TAREA_CALZADO_NUEVO",'tarea_calzado_nuevo');
-define("TAREA_CALZADO_DETALLES",'tarea_calzado_detalles');
+define("TAREA_MAQUILLAJE_NUEVO",'tarea_maquillaje_nuevo');
+define("TAREA_MAQUILLAJE_DETALLES",'tarea_maquillaje_detalles');
 define("TAREA_OFERTA",'tarea_oferta');
 define("TAREA_PERFIL",'tarea_perfil');
 
@@ -132,12 +132,12 @@ define("TAREA_PERFIL",'tarea_perfil');
 //********************************* CONSTANTES GENERALES *********************************
 //****************************************************************************************
 //ROLES
-define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '784'));
-define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '444'));
+define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '444'));
+define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '784'));
 
 define("ROLES", array(
-                        784 => 'Super Administrador',
-                        444 => 'Operador'
+                        444 => 'Super Administrador',
+                        784 => 'Operador'
                   ));
 
 define("SEXO", array(
@@ -169,7 +169,8 @@ define("PERMISOS_ADMIN", array(
     TAREA_CATALOGO_DAMA,
     TAREA_CATALOGO_CABALLERO,
     TAREA_OFERTA,
-    TAREA_PERFIL
+    TAREA_PERFIL,
+    TAREA_MAQUILLAJE_DETALLES
 ));
 
 define("PERMISOS_OPERADOR", array(
@@ -178,29 +179,34 @@ define("PERMISOS_OPERADOR", array(
     TAREA_CATALOGO_DAMA,
     TAREA_CATALOGO_CABALLERO,
     TAREA_OFERTA,
-    TAREA_PERFIL
+    TAREA_PERFIL,
+    TAREA_MAQUILLAJE_DETALLES
 ));
 
-define("MARCA_CALZADO", array(
-                        1 => 'Adidas',
-                        2 => 'Puma',
-                        3 => 'Nike',
-                        4 => 'Reebok',
-                        5 => 'Vans',
+define("MARCA_MAQUILLAJE", array(
+                        1 => 'Younique',
+                        2 => 'YvesRocher',
+                        3 => 'Natura',
+                        4 => 'Uyubeauty',
+                        5 => 'Mac',
                   ));
 
-define("TIPO_CALZADO", array(
+define("TIPO_MAQUILLAJE", array(
                         0 => 'Caballero',
                         1 => 'Dama',
                   ));
 
-define("TIPO_CALZADO_DAMA",1);
-define("TIPO_CALZADO_CABALLERO",0);
+define("TIPO_MAQUILLAJE_DAMA",1);
+define("TIPO_MAQUILLAJE_CABALLERO",0);
+define("CALZADO_DESTACADO", array(
+    0 => 'No',
+    1 => 'Si'
+));
 
 //RUTAS BASE 
-define("RECURSOS_CONTENIDO_IMAGE", "recursos-contenido/images/");
-define("RECURSOS_CONTENIDO_PLUGINS", "recursos-contenido/plugins/");
+define("RECURSOS_CONTENIDO_IMAGE", "recursos_contenido/images/");
+define("RECURSOS_CONTENIDO_PLUGINS", "recursos_contenido/plugins/");
 
 //RUTAS PARA LAS IMAGENES
-define("IMG_DIR_USUARIOS","recursos-contenido/images/usuarios");
-define("IMG_DIR_CALZADOS","recursos-contenido/images/calzados/");
+define("IMG_DIR_USUARIOS","recursos_contenido/imagenes/usuario");
+define("IMG_DIR_MAQUILLAJE","Recursos_Contenido/imagenes/maquillaje/");

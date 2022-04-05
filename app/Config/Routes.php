@@ -70,6 +70,12 @@ $routes->get('/usuario_nuevo', 'Panel\Usuario_nuevo::index', ['as' => 'usuario_n
 $routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => 'registrar_usuario']);
 $routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as' => 'detalles_usuario']);
 $routes->post('/editar_usuario', 'Panel\Usuario_detalles::editar', ['as' => 'editar_usuario']);
+//Catalogo Dama
+$routes->get('/catalogo_dama_panel', 'Panel\Catalogo_dama::index', ['as' => 'catalogo_dama_panel']);
+$routes->get('/eliminar_calzado_dama/(:num)', 'Panel\Catalogo_dama::eliminar/$1', ['as' => 'eliminar_calzado_dama']);
+//Editar calzado
+$routes->get('/detalles_maquillaje/(:num)', 'Panel\Maquillaje_detalles::index/$1', ['as' => 'detalles_maquillaje']);
+$routes->post('/editar_maquillaje', 'Panel\Maquillaje_detalles::editar', ['as' => 'editar_maquillaje']);
 //
 /*
  * --------------------------------------------------------------------

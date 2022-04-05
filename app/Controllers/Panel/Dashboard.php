@@ -42,14 +42,16 @@
             //Instancia de la variable de sesión
             $session = session();
 
+           
             //Datos fundamentales para la plantilla base
             $datos['nombre_completo_usuario'] = $session->usuario_completo;
             $datos['nombre_usuario'] = $session->nombre_usuario;
             $datos['email_usuario'] = $session->email_usuario;
             $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
                                             ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/'.$session->imagen_usuario) 
-                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.jpg') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png'));
-
+                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.jpg'));
+            $datos['nombre_pagina'] = 'Usuario';
+            
             //Datos propios por vista y controlador
             $datos['nombre_pagina'] = 'Dashboard';
             return $datos;

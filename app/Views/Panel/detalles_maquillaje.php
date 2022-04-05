@@ -38,25 +38,25 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5 class="m-0 font-weight-bold text-primary">Editar calzado</h5>
+                    <h5 class="m-0 font-weight-bold text-primary">Editar maquillaje</h5>
                     <h6>Todos los campos marcados con (<font color="red">*</font>) son obligatorios</h6>
                 </div>
                 <div class="card-body">
-                    <?= form_open_multipart('editar_calzado',['id' => 'form-user-register','class' => 'user']); ?>
+                    <?= form_open_multipart('editar_maquillaje',['id' => 'form-user-register','class' => 'user']); ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <center>
                                     <?php
                                         $img = array(
                                                         'id' => 'img-preview',
-                                                        'src'    => base_url(RECURSOS_CONTENIDO_IMAGE.'calzados/'.$calzado->imagen_calzado),
-                                                        'alt'    => 'Calzado_para_dama',
+                                                        'src'    => base_url(RECURSOS_CONTENIDO.'maquillaje/'.$maquillaje->imagen_maquillaje),
+                                                        'alt'    => 'maquillaje_para_dama',
                                                         'class'  => 'img-profile',
                                                         'height' => '150px',
                                                     );
                                         echo img($img);
-                                        echo form_input(['type' => 'hidden', 'name' => 'calzado_anterior', 'value' => $calzado->imagen_calzado]);
-                                        echo form_input(['type' => 'hidden', 'name' => 'id_calzado', 'value' => $calzado->id_calzado]);
+                                        echo form_input(['type' => 'hidden', 'name' => 'maquillaje_anterior', 'value' => $maquillaje->imagen_maquillaje]);
+                                        echo form_input(['type' => 'hidden', 'name' => 'id_maquillaje', 'value' => $maquillaje->id_maquillaje]);
                                     ?>
                                 </center><br>
                             </div>
@@ -68,23 +68,23 @@
                                     <label class="text-dark" for="">Marca (<font color="red">*</font>):</label>
                                     <?php
                                         $select = array('class' => 'form-control form-select',
-                                                            'id' => 'marca-calzado'
+                                                            'id' => 'marca-maquillaje'
                                                             );
-                                        echo form_dropdown('marca_calzado', [''=>'Selecciona una marca para el calzado']+MARCA_CALZADO, $calzado->marca, $select);
+                                        echo form_dropdown('marca_maquillaje', [''=>'Selecciona una marca para el maquillaje']+MARCA_MAQUILLAJE, $maquillaje->marca, $select);
                                     ?>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Módelo del calzado (<font color="red">*</font>):</label>
+                                    <label class="text-dark" for="">Módelo del maquillaje (<font color="red">*</font>):</label>
                                     <?php
                                         $input = array(
                                             'type' => 'text',
-                                            'id' => 'modelo-calzado',
-                                            'name' => 'modelo_calzado',
+                                            'id' => 'modelo-maquillaje',
+                                            'name' => 'modelo_maquillaje',
                                             'class' => 'form-control form-control-user',
-                                            'placeholder' => 'Módelo del calzado',
-                                            'value' => $calzado->modelo
+                                            'placeholder' => 'Módelo del maquillaje',
+                                            'value' => $maquillaje->modelo
                                         );
                                         echo form_input($input);
                                     ?>
@@ -92,15 +92,15 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Color del calzado (<font color="red">*</font>):</label>
+                                    <label class="text-dark" for="">Color del maquillaje (<font color="red">*</font>):</label>
                                     <?php
                                         $input = array(
                                             'type' => 'text',
-                                            'id' => 'color-calzado',
-                                            'name' => 'color_calzado',
+                                            'id' => 'color-maquillaje',
+                                            'name' => 'color_maquillaje',
                                             'class' => 'form-control form-control-user',
-                                            'placeholder' => 'Color del calzado',
-                                            'value' => $calzado->color
+                                            'placeholder' => 'Color del maquillaje',
+                                            'value' => $maquillaje->color
                                         );
                                         echo form_input($input);
                                     ?>
@@ -111,15 +111,15 @@
                         <div class="row">
                             <div class="col-lg-4">                       
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Talla del calzado (<font color="red">*</font>):</label><br>
+                                    <label class="text-dark" for="">Tamaño del maquillaje (<font color="red">*</font>):</label><br>
                                     <?php
                                         $input = array(
                                             'type' => 'text',
-                                            'id' => 'talla-calzado',
-                                            'name' => 'talla_calzado',
+                                            'id' => 'tamaño-maquillaje',
+                                            'name' => 'tamaño_maquillaje',
                                             'class' => 'form-control form-control-user',
-                                            'placeholder' => 'Talla del calzado',
-                                            'value' => $calzado->talla
+                                            'placeholder' => 'Tamaño del maquillaje',
+                                            'value' => $maquillaje->tamaño
                                         );
                                         echo form_input($input);
                                     ?>
@@ -127,27 +127,28 @@
                             </div>
                             <div class="col-lg-4">                       
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Categoría del calzado (<font color="red">*</font>):</label>
+                                    <label class="text-dark" for="">Categoría del maquillaje (<font color="red">*</font>):</label>
                                     <?php
                                         $select = array('class' => 'form-control form-select',
-                                                            'id' => 'categoria-calzado'
+                                                            'id' => 'categoria-maquillaje'
                                                             );
-                                        echo form_dropdown('categoria_calzado', [''=>'Selecciona una categoría para el calzado']+TIPO_CALZADO, $calzado->genero, $select);
+                                        echo form_dropdown('categoria_maquillaje', [''=>'Selecciona una categoría para el maquillaje']+TIPO_MAQUILLAJE, $maquillaje->tipo, $select);
                                     ?>
                                 </div>
                             </div>
                             <div class="col-lg-4">                       
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Precio del calzado (<font color="red">*</font>):</label>
+                                    <label class="text-dark" for="">Precio del maquillaje (<font color="red">*</font>):</label>
                                     <?php
                                         $input = array(
                                             'type' => 'number',
-                                            'id' => 'precio-calzado',
-                                            'name' => 'precio_calzado',
+                                            'id' => 'precio-maquillaje',
+                                            'name' => 'precio_maquillaje',
                                             'class' => 'form-control form-control-user',
                                             'placeholder' => '0000.00',
                                             'min' => '1',
-                                            'value' => $calzado->precio
+                                            'step' => '0.01',
+                                            'value' => $maquillaje->precio
                                         );
                                         echo form_input($input);
                                     ?>
@@ -161,9 +162,9 @@
                                     <label class="text-dark" for="">Destacado (<font color="red">*</font>):</label>
                                     <?php
                                         $select = array('class' => 'form-control form-select',
-                                                            'id' => 'destacado-calzado'
+                                                            'id' => 'destacado-maquillaje'
                                                             );
-                                        echo form_dropdown('destacado_calzado', [''=>'Selecciona una opción para el calzado']+CALZADO_DESTACADO, $calzado->destacado, $select);
+                                        echo form_dropdown('destacado_maquillaje', [''=>'Selecciona una opción para el maquillaje']+MAQUILLAJE_DESTACADO, $maquillaje->destacado, $select);
                                     ?>   
                                 </div>
                             </div>
@@ -173,11 +174,11 @@
                                     <?php
                                         $input = array(
                                             'id' => 'descripcion-area',
-                                            'name' => 'descripcion_calzado',
-                                            'placeholder' => 'Escribe aquí la descripción de tu calzado...',
+                                            'name' => 'descripcion_maquillaje',
+                                            'placeholder' => 'Escribe aquí la descripción de tu maquillaje...',
                                             'class' => 'form-control',
                                             'rows' => '4',
-                                            'value' => $calzado->descripcion
+                                            'value' => $maquillaje->descripcion
                                         );
                                         echo form_textarea($input);
                                     ?>      
@@ -188,12 +189,12 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Imagen del calzado (<font color="blue">Opcional</font>):</label>
+                                    <label class="text-dark" for="">Imagen del maquillaje (<font color="blue">Opcional</font>):</label>
                                     <?php
                                         $input = array(
                                             'type' => 'file',
-                                            'id' => 'imagen-calzado',
-                                            'name' => 'image_calzado',
+                                            'id' => 'imagen-maquillaje',
+                                            'name' => 'image_maquillaje',
                                             'class' => 'form-control',
                                         );
                                         echo form_input($input);
@@ -232,7 +233,7 @@
     <script type="text/javascript" src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'js/bostrap-validator.min.js')?>"></script>
     <!--  -->
     <script type="text/javascript">
-        document.getElementById("imagen-calzado").onchange = function(e) {
+        document.getElementById("imagen-maquillaje").onchange = function(e) {
             // Se crea un objeto FileReader
             let reader = new FileReader();
             // Se leé el archivo seleccionado y se pasa como argumento al objeto FileReader
@@ -255,66 +256,66 @@
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    marca_calzado: {
+                    marca_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'La marca del calzado es requerida'
+                                message: 'La marca del maquillaje es requerida'
                             },
                         }//validacion
                     },//end 
-                    modelo_calzado: {
+                    modelo_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'Módelo del calzado es requerido'
+                                message: 'Módelo del maquillaje es requerido'
                             },
                         }//validacion
                     },//end 
-                    color_calzado: {
+                    color_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'Color del calzado es requerido'
+                                message: 'Color del maquillaje es requerido'
                             },
                         }//validacion
                     },//end 
-                    talla_calzado: {
+                    tamaño_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'Talla del calzado es requerida'
+                                message: 'Tamaño del maquillaje es requerida'
                             },
                         }//validacion
                     },//end 
-                    categoria_calzado: {
+                    categoria_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'La categoría del calzado es requerida'
+                                message: 'La categoría del maquillaje es requerida'
                             },
                         }//validacion
                     },//end 
-                    precio_calzado: {
+                    precio_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'Precio del calzado es requerida'
+                                message: 'Precio del maquillaje es requerida'
                             },
                         }//validacion
                     },//end 
-                    destacado_calzado: {
+                    destacado_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'Precio del calzado es requerida'
+                                message: 'Precio del maquillaje es requerida'
                             },
                         }//validacion
                     },//end 
-                    descripcion_calzado: {
+                    descripcion_maquillaje: {
                         validators: {
                             notEmpty: {
-                                message: 'Descripción del calzado es requerida'
+                                message: 'Descripción del maquillaje es requerida'
                             },
                         }//validacion
                     },//end 
-                    image_calzado: {
+                    image_maquillaje: {
                         validators: {
                             // notEmpty: {
-                            //     message: 'La imagen del calzado es requerida'
+                            //     message: 'La imagen del maquillaje es requerida'
                             // },
                             file: { 
                                 extension: 'jpeg,jpg,png',

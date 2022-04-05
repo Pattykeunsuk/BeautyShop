@@ -38,27 +38,25 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5 class="m-0 font-weight-bold text-primary">Editar calzado</h5>
+                    <h5 class="m-0 font-weight-bold text-primary">Registrar nuevo calzado</h5>
                     <h6>Todos los campos marcados con (<font color="red">*</font>) son obligatorios</h6>
                 </div>
                 <div class="card-body">
-                    <?= form_open_multipart('editar_calzado',['id' => 'form-user-register','class' => 'user']); ?>
+                    <?= form_open_multipart('registrar_calzado',['id' => 'form-user-register','class' => 'user']); ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <center>
                                     <?php
                                         $img = array(
                                                         'id' => 'img-preview',
-                                                        'src'    => base_url(RECURSOS_CONTENIDO_IMAGE.'calzados/'.$calzado->imagen_calzado),
+                                                        'src'    => base_url(RECURSOS_CONTENIDO_IMAGE.'icons/calzado-dama.jpg'),
                                                         'alt'    => 'Calzado_para_dama',
-                                                        'class'  => 'img-profile',
+                                                        'class'  => 'img-profile rounded-circle',
                                                         'height' => '150px',
                                                     );
                                         echo img($img);
-                                        echo form_input(['type' => 'hidden', 'name' => 'calzado_anterior', 'value' => $calzado->imagen_calzado]);
-                                        echo form_input(['type' => 'hidden', 'name' => 'id_calzado', 'value' => $calzado->id_calzado]);
                                     ?>
-                                </center><br>
+                                </center>
                             </div>
                         </div>
 
@@ -70,7 +68,7 @@
                                         $select = array('class' => 'form-control form-select',
                                                             'id' => 'marca-calzado'
                                                             );
-                                        echo form_dropdown('marca_calzado', [''=>'Selecciona una marca para el calzado']+MARCA_CALZADO, $calzado->marca, $select);
+                                        echo form_dropdown('marca_calzado', [''=>'Selecciona una marca para el calzado']+MARCA_CALZADO, set_value('marca_calzado'), $select);
                                     ?>
                                 </div>
                             </div>
@@ -84,7 +82,7 @@
                                             'name' => 'modelo_calzado',
                                             'class' => 'form-control form-control-user',
                                             'placeholder' => 'Módelo del calzado',
-                                            'value' => $calzado->modelo
+                                            'value' => set_value('modelo_calzado')
                                         );
                                         echo form_input($input);
                                     ?>
@@ -100,7 +98,7 @@
                                             'name' => 'color_calzado',
                                             'class' => 'form-control form-control-user',
                                             'placeholder' => 'Color del calzado',
-                                            'value' => $calzado->color
+                                            'value' => set_value('color_calzado')
                                         );
                                         echo form_input($input);
                                     ?>
@@ -119,7 +117,7 @@
                                             'name' => 'talla_calzado',
                                             'class' => 'form-control form-control-user',
                                             'placeholder' => 'Talla del calzado',
-                                            'value' => $calzado->talla
+                                            'value' => set_value('talla_calzado')
                                         );
                                         echo form_input($input);
                                     ?>
@@ -132,7 +130,7 @@
                                         $select = array('class' => 'form-control form-select',
                                                             'id' => 'categoria-calzado'
                                                             );
-                                        echo form_dropdown('categoria_calzado', [''=>'Selecciona una categoría para el calzado']+TIPO_CALZADO, $calzado->genero, $select);
+                                        echo form_dropdown('categoria_calzado', [''=>'Selecciona una categoría para el calzado']+TIPO_CALZADO, set_value('categoria_calzado'), $select);
                                     ?>
                                 </div>
                             </div>
@@ -147,7 +145,7 @@
                                             'class' => 'form-control form-control-user',
                                             'placeholder' => '0000.00',
                                             'min' => '1',
-                                            'value' => $calzado->precio
+                                            'value' => set_value('precio_calzado')
                                         );
                                         echo form_input($input);
                                     ?>
@@ -163,7 +161,7 @@
                                         $select = array('class' => 'form-control form-select',
                                                             'id' => 'destacado-calzado'
                                                             );
-                                        echo form_dropdown('destacado_calzado', [''=>'Selecciona una opción para el calzado']+CALZADO_DESTACADO, $calzado->destacado, $select);
+                                        echo form_dropdown('destacado_calzado', [''=>'Selecciona una opción para el calzado']+CALZADO_DESTACADO, set_value('destacado_calzado'), $select);
                                     ?>   
                                 </div>
                             </div>
@@ -176,8 +174,7 @@
                                             'name' => 'descripcion_calzado',
                                             'placeholder' => 'Escribe aquí la descripción de tu calzado...',
                                             'class' => 'form-control',
-                                            'rows' => '4',
-                                            'value' => $calzado->descripcion
+                                            'rows' => '2',
                                         );
                                         echo form_textarea($input);
                                     ?>      
@@ -188,7 +185,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="text-dark" for="">Imagen del calzado (<font color="blue">Opcional</font>):</label>
+                                    <label class="text-dark" for="">Imagen del calzado (<font color="red">*</font>):</label>
                                     <?php
                                         $input = array(
                                             'type' => 'file',
@@ -211,7 +208,7 @@
                                                     'value'   => 'true',
                                                     'type'    => 'submit',
                                                     'class' => 'btn btn-success',
-                                                    'content' => '<i class="fa fa-lg fa-save"></i> Editar',
+                                                    'content' => '<i class="fa fa-lg fa-save"></i> Registrar',
                                                 );
                                 echo form_button($btn_submit);
                             ?>
@@ -255,6 +252,13 @@
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
+                    // marca_calzado
+                    // modelo_calzado
+                    // color_calzado
+                    // talla_calzado
+                    // categoria_calzado
+                    // precio_calzado
+                    // image_calzado
                     marca_calzado: {
                         validators: {
                             notEmpty: {
@@ -313,9 +317,9 @@
                     },//end 
                     image_calzado: {
                         validators: {
-                            // notEmpty: {
-                            //     message: 'La imagen del calzado es requerida'
-                            // },
+                            notEmpty: {
+                                message: 'La imagen del calzado es requerida'
+                            },
                             file: { 
                                 extension: 'jpeg,jpg,png',
                                 type: 'image/jpeg,image/png',
