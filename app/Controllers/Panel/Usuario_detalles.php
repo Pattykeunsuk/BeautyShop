@@ -55,7 +55,7 @@
             $datos['email_usuario'] = $session->email_usuario;
             $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
                                             ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/'.$session->imagen_usuario) 
-                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.png'));
+                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.jpg'));
             //Cargamos el modelo correspondiente
             $tabla_usuarios = new \App\Models\Tabla_usuarios;
             $usuario = $tabla_usuarios->obtener_usuario($id_usuario);

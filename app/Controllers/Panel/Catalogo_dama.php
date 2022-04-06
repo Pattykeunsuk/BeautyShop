@@ -42,15 +42,15 @@
             //Instancia de la variable de sesión
             $session = session();
 
-            //Datos fundamentales para la plantilla base
-            $datos['nombre_completo_usuario'] = $session->usuario_completo;
-            $datos['nombre_usuario'] = $session->nombre_usuario;
-            $datos['email_usuario'] = $session->email_usuario;
-            $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
-                                            ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/'.$session->imagen_usuario) 
-                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.png'));
-
-            //Datos propios por vista y controlador
+           //Datos fundamentales para la plantilla base
+           $datos['nombre_completo_usuario'] = $session->usuario_completo;
+           $datos['nombre_usuario'] = $session->nombre_usuario;
+           $datos['email_usuario'] = $session->email_usuario;
+           $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
+                                           ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/'.$session->imagen_usuario) 
+                                           : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.jpg'));
+           
+                                           //Cargamos el modelo correspondiente
             $datos['nombre_pagina'] = 'Catalogo para dama';
 
             //Cargamos el modelo correspondiente

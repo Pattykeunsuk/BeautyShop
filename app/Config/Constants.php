@@ -132,12 +132,12 @@ define("TAREA_PERFIL",'tarea_perfil');
 //********************************* CONSTANTES GENERALES *********************************
 //****************************************************************************************
 //ROLES
-define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '444'));
-define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '784'));
+define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '784'));
+define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '444'));
 
 define("ROLES", array(
-                        444 => 'Super Administrador',
-                        784 => 'Operador'
+                        444 => 'Operador',
+                        784 => 'Super Administrador'
                   ));
 
 define("SEXO", array(
@@ -198,13 +198,14 @@ define("TIPO_MAQUILLAJE", array(
 
 define("TIPO_MAQUILLAJE_DAMA",1);
 define("TIPO_MAQUILLAJE_CABALLERO",0);
-define("CALZADO_DESTACADO", array(
+
+define("MAQUILLAJE_DESTACADO", array(
     0 => 'No',
     1 => 'Si'
 ));
 
 //RUTAS BASE 
-define("RECURSOS_CONTENIDO_IMAGE", "recursos_contenido/images/");
+define("RECURSOS_CONTENIDO_IMAGE", "recursos_contenido/imagenes/");
 define("RECURSOS_CONTENIDO_PLUGINS", "recursos_contenido/plugins/");
 
 //RUTAS PARA LAS IMAGENES

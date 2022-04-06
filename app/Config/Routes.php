@@ -73,9 +73,12 @@ $routes->post('/editar_usuario', 'Panel\Usuario_detalles::editar', ['as' => 'edi
 //Catalogo Dama
 $routes->get('/catalogo_dama_panel', 'Panel\Catalogo_dama::index', ['as' => 'catalogo_dama_panel']);
 $routes->get('/eliminar_calzado_dama/(:num)', 'Panel\Catalogo_dama::eliminar/$1', ['as' => 'eliminar_calzado_dama']);
-//Editar calzado
+//Editar producto
 $routes->get('/detalles_maquillaje/(:num)', 'Panel\Maquillaje_detalles::index/$1', ['as' => 'detalles_maquillaje']);
 $routes->post('/editar_maquillaje', 'Panel\Maquillaje_detalles::editar', ['as' => 'editar_maquillaje']);
+//Nuevo maquillaje
+$routes->get('/nuevo_maquillaje', 'Panel\Nuevo_maquillaje::index', ['as' => 'nuevo_maquillaje']);
+$routes->post('/registrar_maquillaje', 'Panel\Nuevo_maquillaje::registrar', ['as' => 'registrar_maquillaje']);
 //
 /*
  * --------------------------------------------------------------------

@@ -31,7 +31,8 @@
                     return redirect()->to(route_to('usuarios'));
                 }//end if no existe el usuario
                 else{
-                    return $this->crear_vista("panel/maquillaje_detalles", $this->cargar_datos($id_maquillaje));
+                    dd($tabla_maquillaje);
+                    return $this->crear_vista("panel/detalles_maquillaje", $this->cargar_datos($id_maquillaje));
                 }//end else no existe el usuario
             }//end if rol permitido
             else{
@@ -49,16 +50,15 @@
             //Instancia de la variable de sesión
             $session = session();
 
-            //Datos fundamentales para la plantilla base
-            $datos['nombre_completo_usuario'] = $session->usuario_completo;
-            $datos['nombre_usuario'] = $session->nombre_usuario;
-            $datos['email_usuario'] = $session->email_usuario;
-            $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
-                                            ? base_url(RECURSOS_CONTENIDO.'Imagenes/Usuario/'.$session->imagen_usuario) 
-                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'Imagenes/Usuario/female.png') : base_url(RECURSOS_CONTENIDO.'Imagenes/Usuario/male.jpg'));
-
-            //Datos propios por vista y controlador
-            $tabla_maquillaje = new \App\Models\Tabla_maquillaje;
+           //Datos fundamentales para la plantilla base
+           $datos['nombre_completo_usuario'] = $session->usuario_completo;
+           $datos['nombre_usuario'] = $session->nombre_usuario;
+           $datos['email_usuario'] = $session->email_usuario;
+           $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
+                                           ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/'.$session->imagen_usuario) 
+                                           : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.png'));
+           //Cargamos el modelo correspondiente
+           $tabla_usuarios = new \App\Models\Tabla_maquillaje;
             $maquillaje = $tabla_maquillaje->obtener_maquillaje($id_maquillaje);
 
             //Datos propios por vista y controlador
@@ -125,7 +125,7 @@
             $maquillaje['tipo'] = $this->request->getPost('categoria_maquillaje');
             $maquillaje['precio'] = $this->request->getPost('precio_maquillaje');
             $maquillaje['descripcion'] = $this->request->getPost('descripcion_maquillaje');
-            $maquillaje['destacado'] = $this->request->getPost('destacado_maquillaje');
+            $maquillajemaquillaje['destacado'] = $this->request->getPost('destacado_maquillaje');
             $maquillaje['fecha'] = fecha_actual();
             //verificar si tiene algo el input de file
             if(!empty($this->request->getFile('image_maquillaje')) && $this->request->getFile('image_maquillaje')->getSize() > 0){

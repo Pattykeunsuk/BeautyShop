@@ -48,7 +48,7 @@
             $datos['email_usuario'] = $session->email_usuario;
             $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
                                             ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/'.$session->imagen_usuario) 
-                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.png'));
+                                            : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO.'imagenes/usuario/female.png') : base_url(RECURSOS_CONTENIDO.'imagenes/usuario/male.jpg'));
 
             //Datos propios por vista y controlador
             $datos['nombre_pagina'] = 'Usuario nuevo';

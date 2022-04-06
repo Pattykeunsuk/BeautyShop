@@ -49,7 +49,7 @@
                                     <?php
                                         $img = array(
                                                         'id' => 'img-preview',
-                                                        'src'    => base_url(RECURSOS_CONTENIDO.'maquillaje/'.$maquillaje->imagen_maquillaje),
+                                                        'src'    => base_url(RECURSOS_CONTENIDO.'imagenes/maquillaje/'.$maquillaje->imagen_maquillaje),
                                                         'alt'    => 'maquillaje_para_dama',
                                                         'class'  => 'img-profile',
                                                         'height' => '150px',
